@@ -21,8 +21,8 @@ function Navbar() {
         boxShadow: `0 4px 15px rgba(0, 221, 235, ${scrollOpacity * 0.2})`, // Subtle glow effect
       }}
     >
-      <div className="text-2xl font-bold text-ai-blue pl-4"></div>
-      {/* <div className="text-2xl font-bold text-ai-blue pl-4">Wanna know about my works?</div> */}
+      {/* <div className="text-2xl font-bold text-ai-blue pl-4"></div> */}
+      <div className="text-2xl font-bold text-ai-blue pl-4">My Portfolio</div>
       <div className="md:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
