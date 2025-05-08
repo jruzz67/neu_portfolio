@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'; // Added useEffect
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { motion } from 'framer-motion'; // Import motion for animations
 
 // Layout Components
 import AnimationWrapper from './components/layout/AnimationWrapper';
@@ -12,6 +13,9 @@ import Experience from './components/sections/Experience';
 import Projects from './components/sections/Projects'; // This is the featured projects section on the homepage
 import Skills from './components/sections/Skills';
 import Contact from './components/sections/Contact';
+// Import the new Resume component
+import Resume from './components/sections/Resume'; // Assuming Resume.jsx is in components/sections/
+
 import ProjectList from './components/pages/ProjectList'; // This is the dedicated all projects page
 import ProjectDetail from './components/pages/ProjectDetail';
 
@@ -34,21 +38,17 @@ function App() {
   // Optional: If you want to ensure the loading screen shows for a minimum duration
   // or if you have actual data to fetch, you might use useEffect here.
   // For now, the LoadingScreen's internal timing will dictate its visibility.
-  // Example of minimum duration (uncomment if needed):
   /*
   useEffect(() => {
     const timer = setTimeout(() => {
-      // You might combine this with actual data loading logic
-      // For now, just ensure it stays for at least 2 seconds
-      if (isLoading) { // Only set to false if still loading
-         // setIsLoading(false); // Don't set here if using LoadingScreen's own onLoaded
+      if (isLoading) {
+          // setIsLoading(false); // Don't set here if using LoadingScreen's own onLoaded
       }
     }, 2000); // Minimum 2 seconds
 
-    return () => clearTimeout(timer); // Cleanup the timer
-  }, [isLoading]); // Dependency on isLoading to re-run if it changes (e.g., if you add data fetching)
+    return () => clearTimeout(timer);
+  }, [isLoading]);
   */
-
 
   // Conditional render: Show LoadingScreen if isLoading is true
   if (isLoading) {
@@ -77,24 +77,10 @@ function App() {
                   {/* This 'Projects' component is the one used on the homepage for a quick overview */}
                   <Projects />
                 </section>
-                 {/* Resume Section */}
-                <section id="resume" className="min-h-screen flex flex-col items-center justify-center bg-ai-dark/30"> {/* Added centering and bg */}
-                  <div className="p-12 text-white text-center"> {/* Centered text */}
-                    <h2 className="text-5xl font-bold text-ai-blue mb-8">Resume</h2>
-                    <p className="mb-6 text-lg text-gray-300">
-                      Click the button below to download my latest resume.
-                    </p>
-                    <a
-                      href="https://your-aws-s3-bucket.s3.amazonaws.com/your-resume.pdf" // Replace with your actual resume link
-                      download="JariusRajSingh_Resume.pdf" // Suggest a filename
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block px-8 py-3 bg-ai-blue text-ai-dark font-semibold hover:bg-ai-blue/80 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                    >
-                      Download Resume
-                    </a>
-                  </div>
-                </section>
+                   {/* Resume Section - Now using the separate Resume component */}
+                 <section id="resume" className="min-h-screen"> {/* Section wrapper remains for scroll-spy */}
+                   <Resume /> {/* Render the imported Resume component */}
+                 </section>
                 <section id="contact" className="min-h-screen">
                   <Contact />
                 </section>
@@ -107,6 +93,8 @@ function App() {
               // The Experience component itself has padding and title, so wrapping div might be redundant unless specific layout needed
               <Experience /> // Experience component likely handles its own title and padding.
             } />
+             {/* Optional: Keep a route for the standalone Resume page if needed */}
+             {/* <Route path="/resume" element={<Resume />} /> */}
             {/* Route for the dedicated page showing all projects */}
             <Route path="/projects" element={<ProjectList />} />
             {/* Route for a specific project detail page */}

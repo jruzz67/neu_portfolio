@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'; // Import motion for animations
 import { FaRobot } from 'react-icons/fa'; // Import an icon for the AI assistant
 
+// Import your images from src/assets
+// Corrected the paths to go up two directories from src/components/sections/
+// !! IMPORTANT: Double-check these paths and file names match your project structure !!
+import profile2 from '../../assets/profile-2.png'; // Assuming profile-2.png is directly in src/assets
+import profile1 from '../../assets/profile-1.jpg'; // Assuming profile-1.jpg is directly in src/assets
+
+
 function Home({ setIsChatOpen }) {
   const [typedText, setTypedText] = useState('');
   // Using a more engaging opening phrase
@@ -118,18 +125,20 @@ function Home({ setIsChatOpen }) {
               whileTap={{ scale: 0.95 }} // Subtle press animation
               style={{ width: 'clamp(200px, 80%, 400px)', height: 'clamp(200px, 80%, 400px)' }} // Responsive fixed size
            >
-              {/* Image Front */}
+              {/* Image Front - Using imported local image */}
               <img
-                 src="https://my-project-imp-981.s3.ap-south-1.amazonaws.com/profile-2.png" // Placeholder URL for the front image
+                 src={profile2} // Use the imported variable
                  alt="Your Name - Portfolio Image Front" // Descriptive alt text
                  className="flip-card-front w-full h-full rounded-full object-cover absolute top-0 left-0 backface-hidden" // Styled as a circle, absolute positioning
+                 onError={(e) => console.error('Error loading front image:', e.target.src)} // Log error if image fails to load
               />
 
-              {/* Image Back - Replace with your actual photo */}
+              {/* Image Back - Using imported local image */}
               <img
-                 src="https://my-project-imp-981.s3.ap-south-1.amazonaws.com/profile-1.jpg" // Placeholder URL for the back image (replace!)
+                 src={profile1} // Use the imported variable
                  alt="Your Name - Portfolio Image Back" // Descriptive alt text
                  className="flip-card-back w-full h-full rounded-full object-cover absolute top-0 left-0 backface-hidden" // Styled as a circle, absolute positioning
+                 onError={(e) => console.error('Error loading back image:', e.target.src)} // Log error if image fails to load
               />
            </motion.div>
         </motion.div>
