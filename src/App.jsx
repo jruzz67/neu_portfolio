@@ -14,8 +14,7 @@ import Experience from './components/sections/Experience';
 import Projects from './components/sections/Projects'; // This is the featured projects section on the homepage
 import Skills from './components/sections/Skills';
 import Contact from './components/sections/Contact';
-// Removed import for the separate Resume component
-// import Resume from './components/sections/Resume';
+import About from './components/sections/About'; // Ensure About is imported
 
 import ProjectList from './components/pages/ProjectList'; // This is the dedicated all projects page
 import ProjectDetail from './components/pages/ProjectDetail';
@@ -76,6 +75,10 @@ function App() {
                 <section id="home" className="min-h-screen">
                   <Home setIsChatOpen={setIsChatOpen} />
                 </section>
+                 {/* Added the About section here */}
+                 <section id="about" className="min-h-screen">
+                   <About />
+                 </section>
                 <section id="skills" className="min-h-screen">
                   <Skills />
                 </section>
@@ -83,8 +86,8 @@ function App() {
                   {/* This 'Projects' component is the one used on the homepage for a quick overview */}
                   <Projects />
                 </section>
-                   {/* Removed the separate Resume section */}
-                   {/* <section id="resume" className="relative py-16 md:py-24 bg-transparent text-white overflow-hidden font-poppins flex items-center justify-center"> ... </section> */}
+                  {/* Removed the separate Resume section */}
+                  {/* <section id="resume" className="relative py-16 md:py-24 bg-transparent text-white overflow-hidden font-poppins flex items-center justify-center"> ... </section> */}
                 <section id="contact" className="min-h-screen">
                   <Contact />
                 </section>
