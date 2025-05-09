@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'; // Added useEffect
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { motion } from 'framer-motion'; // Import motion for animations
+// Removed motion import as it's no longer used directly in App.jsx for the removed section
+// import { motion } from 'framer-motion';
 
 // Layout Components
 import AnimationWrapper from './components/layout/AnimationWrapper';
@@ -13,8 +14,8 @@ import Experience from './components/sections/Experience';
 import Projects from './components/sections/Projects'; // This is the featured projects section on the homepage
 import Skills from './components/sections/Skills';
 import Contact from './components/sections/Contact';
-// Import the new Resume component
-import Resume from './components/sections/Resume'; // Assuming Resume.jsx is in components/sections/
+// Removed import for the separate Resume component
+// import Resume from './components/sections/Resume';
 
 import ProjectList from './components/pages/ProjectList'; // This is the dedicated all projects page
 import ProjectDetail from './components/pages/ProjectDetail';
@@ -50,6 +51,11 @@ function App() {
   }, [isLoading]);
   */
 
+  // Removed animation variants for the resume section as it's no longer here
+  // const resumeTextVariants = { ... };
+  // const buttonVariants = { ... };
+
+
   // Conditional render: Show LoadingScreen if isLoading is true
   if (isLoading) {
     // Pass the callback to the LoadingScreen component
@@ -77,10 +83,8 @@ function App() {
                   {/* This 'Projects' component is the one used on the homepage for a quick overview */}
                   <Projects />
                 </section>
-                   {/* Resume Section - Now using the separate Resume component */}
-                 <section id="resume" className="min-h-screen"> {/* Section wrapper remains for scroll-spy */}
-                   <Resume /> {/* Render the imported Resume component */}
-                 </section>
+                   {/* Removed the separate Resume section */}
+                   {/* <section id="resume" className="relative py-16 md:py-24 bg-transparent text-white overflow-hidden font-poppins flex items-center justify-center"> ... </section> */}
                 <section id="contact" className="min-h-screen">
                   <Contact />
                 </section>

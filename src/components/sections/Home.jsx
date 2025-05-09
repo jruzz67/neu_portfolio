@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'; // Import motion for animations
-import { FaRobot } from 'react-icons/fa'; // Import an icon for the AI assistant
+import { FaRobot, FaDownload, FaGithub, FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa'; // Import icons
+import { HiOutlineArrowRight } from 'react-icons/hi'; // Import an icon for the projects button
 
 // Import your images from src/assets
 // Corrected the paths to go up two directories from src/components/sections/
@@ -30,19 +31,29 @@ function Home({ setIsChatOpen }) {
     return () => clearInterval(typingInterval); // Cleanup on unmount
   }, [fullText]); // Re-run if fullText changes (unlikely here, but good practice)
 
-  // Animation variants for the main content container (staggers children)
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
+  // Animation variants for the main hero container
+  const heroContainerVariants = {
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
-        duration: 0.8,
-        ease: 'easeOut',
-        staggerChildren: 0.1, // Stagger animation for direct children
+        staggerChildren: 0.3, // Stagger animation for the two main columns
       },
     },
   };
+
+  // Animation variants for the text content block
+  const textBlockVariants = {
+      hidden: { opacity: 0, x: -50 },
+      visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+  };
+
+  // Animation variants for the image block
+  const imageBlockVariants = {
+      hidden: { opacity: 0, x: 50 },
+      visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+  };
+
 
   // Animation variants for individual text lines (slide up and fade in)
   const textVariants = {
@@ -50,16 +61,38 @@ function Home({ setIsChatOpen }) {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
   };
 
-  // Animation variants for the image container (initial entry)
-  const imageEntryVariants = {
-      hidden: { opacity: 0, scale: 0.8, x: 50 },
-      visible: { opacity: 1, scale: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut', delay: 0.4 } },
+  // Animation variants for the buttons container (staggers children)
+  const buttonsContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, // Stagger animation for the buttons
+      },
+    },
   };
 
-  // Animation variants for the AI Assistant Icon
+  // Animation variants for individual buttons
+   const buttonVariants = {
+       hidden: { opacity: 0, y: 20 },
+       visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+       hover: { scale: 1.05, boxShadow: '0 0 20px rgba(0, 221, 235, 0.5)' }, // Enhanced hover glow
+       tap: { scale: 0.95 },
+   };
+
+    // Animation variants for social icons
+    const socialIconVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+        hover: { scale: 1.2, color: '#00ddeb' }, // Scale and change color on hover
+        tap: { scale: 0.9 },
+    };
+
+
+  // Animation variants for the AI Assistant Icon (fixed position)
   const aiIconVariants = {
       hidden: { opacity: 0, scale: 0.5 },
-      visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: 'easeOut', delay: 1.5 } }, // Appears after other animations
+      visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: 'easeOut', delay: 2 } }, // Appears after other animations
       hover: { scale: 1.1, rotate: 10, boxShadow: '0 0 15px rgba(0, 221, 235, 0.5)' }, // Subtle hover effect
       tap: { scale: 0.9 },
   };
@@ -71,14 +104,17 @@ function Home({ setIsChatOpen }) {
     <section id="home" className="relative py-16 md:py-24 bg-transparent text-white min-h-screen flex items-center justify-center overflow-hidden font-poppins">
 
       {/* Hero Content Container - Two Columns */}
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+      <motion.div
+         className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10"
+         variants={heroContainerVariants} // Apply staggered entry to columns
+         initial="hidden"
+         animate="visible" // Animate when component mounts
+      >
 
         {/* Text Content Block */}
         <motion.div
           className="w-full md:w-1/2 text-center md:text-left" // Adjusted text alignment based on screen size
-          variants={containerVariants} // Apply staggered entry animation
-          initial="hidden"
-          animate="visible" // Animate when component mounts
+          variants={textBlockVariants} // Apply animation to the text block
         >
           {/* Main Title with Typing Effect */}
           <motion.h1
@@ -105,25 +141,105 @@ function Home({ setIsChatOpen }) {
             {subtitle}
           </motion.p>
 
-          {/* Call to Action (Optional - could add a button here later) */}
-          {/* For now, the AI Assistant is the primary interaction */}
+          {/* Buttons Container - Apply staggered entry */}
+          <motion.div
+             className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-start mb-8" // Button layout and spacing
+             variants={buttonsContainerVariants} // Stagger button animations
+          >
+              {/* View Projects Button */}
+               <motion.a
+                   href="#projects" // Link to projects section
+                   className="inline-block px-8 py-3 bg-transparent border-2 border-ai-blue text-ai-blue font-semibold hover:bg-ai-blue/10 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-ai-blue/50 text-lg flex items-center justify-center space-x-2" // Styled as a contrast dim button
+                   variants={buttonVariants}
+                   whileHover="hover"
+                   whileTap="tap"
+               >
+                   <span>View Projects</span>
+                   <HiOutlineArrowRight className="text-xl" /> {/* Arrow icon */}
+               </motion.a>
+
+              {/* Resume Download Button - Integrated */}
+              <motion.a
+                href="https://mycareervault.s3.ap-south-1.amazonaws.com/Resume.pdf" // Replace with your actual resume link
+                download="JariusRajSingh_Resume.pdf" // Suggest a filename
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-3 bg-ai-blue text-ai-dark font-semibold hover:bg-ai-blue/90 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-ai-blue/50 text-lg flex items-center justify-center space-x-2" // Enhanced button styling, added flex/center for icon
+                variants={buttonVariants} // Apply button animation
+                whileHover="hover" // Apply hover animation
+                whileTap="tap" // Apply tap animation
+              >
+                <span>Download Resume</span>
+                <FaDownload className="text-xl" /> {/* Download icon */}
+              </motion.a>
+
+          </motion.div>
+
+           {/* Social Icons */}
+           <motion.div
+              className="flex space-x-6 text-2xl justify-center md:justify-start text-gray-400" // Social icon styling
+               variants={buttonsContainerVariants} // Use same stagger for social icons
+           >
+               <motion.a
+                   href="https://github.com/yourusername" // Replace with your actual GitHub link
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   variants={socialIconVariants}
+                   whileHover="hover"
+                   whileTap="tap"
+                   aria-label="GitHub"
+               >
+                   <FaGithub />
+               </motion.a>
+               <motion.a
+                   href="https://linkedin.com/in/yourprofile" // Replace with your actual LinkedIn link
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   variants={socialIconVariants}
+                   whileHover="hover"
+                   whileTap="tap"
+                   aria-label="LinkedIn"
+               >
+                   <FaLinkedinIn />
+               </motion.a>
+               <motion.a
+                   href="https://twitter.com/yourhandle" // Replace with your actual Twitter link
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   variants={socialIconVariants}
+                   whileHover="hover"
+                   whileTap="tap"
+                   aria-label="Twitter"
+               >
+                   <FaTwitter />
+               </motion.a>
+               <motion.a
+                   href="https://instagram.com/yourhandle" // Replace with your actual Instagram link
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   variants={socialIconVariants}
+                   whileHover="hover"
+                   whileTap="tap"
+                   aria-label="Instagram"
+               >
+                   <FaInstagram />
+               </motion.a>
+           </motion.div>
+
 
         </motion.div>
 
         {/* Image Block - Added flip and glow */}
         <motion.div
            className="w-full md:w-1/2 flex justify-center md:justify-end relative perspective-1000" // Center image on mobile, align right on desktop, added perspective
-           variants={imageEntryVariants} // Apply initial entry animation
-           initial="hidden"
-           whileInView="visible" // Animate when component scrolls into view (or on mount if already visible)
-           viewport={{ once: true, amount: 0.5 }}
+           variants={imageBlockVariants} // Apply animation to the image block
         >
            {/* Flip Card Container */}
            <motion.div
               className="flip-card-inner transition-transform duration-700 transform-style-3d rounded-full border-4 border-ai-blue/50 shadow-xl" // Apply flip transition, border, shadow
               whileHover={{ rotateY: 180, scale: 1.05, boxShadow: '0 0 30px rgba(0, 221, 235, 0.6)' }} // Flip, zoom, and glow on hover
               whileTap={{ scale: 0.95 }} // Subtle press animation
-              style={{ width: 'clamp(200px, 80%, 400px)', height: 'clamp(200px, 80%, 400px)' }} // Responsive fixed size
+              style={{ width: 'clamp(250px, 80%, 450px)', height: 'clamp(250px, 80%, 450px)' }} // Increased responsive fixed size
            >
               {/* Image Front - Using imported local image */}
               <img
@@ -143,7 +259,7 @@ function Home({ setIsChatOpen }) {
            </motion.div>
         </motion.div>
 
-      </div>
+      </motion.div>
 
       {/* AI Assistant Icon - Fixed Position */}
       <motion.button
@@ -160,10 +276,14 @@ function Home({ setIsChatOpen }) {
       </motion.button>
 
 
-       {/* Custom CSS for flip animation */}
+       {/* Custom CSS for flip animation and fonts */}
        <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap'); /* Added Orbitron font */
+
         .font-poppins { font-family: 'Poppins', sans-serif; }
+        .font-orbitron { font-family: 'Orbitron', sans-serif; } /* Apply Orbitron to specific elements if desired */
+
 
         /* Perspective for 3D flip effect */
         .perspective-1000 {
