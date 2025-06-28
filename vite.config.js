@@ -13,6 +13,6 @@ export default defineConfig({
     alias: {
       '@': '/src', // Optional: For cleaner imports (e.g., import from '@/components/...')
     },
-  },
+  }
 });
 
