@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Added useEffect
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Removed motion import as it's no longer used directly in App.jsx for the removed section
 // import { motion } from 'framer-motion';
@@ -75,10 +75,14 @@ function App() {
                 <section id="home" className="min-h-screen">
                   <Home setIsChatOpen={setIsChatOpen} />
                 </section>
-                 {/* Added the About section here */}
-                 <section id="about" className="min-h-screen">
-                   <About />
-                 </section>
+                {/* Added the About section here */}
+                <section id="about" className="min-h-screen">
+                  <About />
+                </section>
+                {/* Added the Experience section here */}
+                <section id="experience" className="min-h-screen">
+                  <Experience />
+                </section>
                 <section id="skills" className="min-h-screen">
                   <Skills />
                 </section>
@@ -86,8 +90,8 @@ function App() {
                   {/* This 'Projects' component is the one used on the homepage for a quick overview */}
                   <Projects />
                 </section>
-                  {/* Removed the separate Resume section */}
-                  {/* <section id="resume" className="relative py-16 md:py-24 bg-transparent text-white overflow-hidden font-poppins flex items-center justify-center"> ... </section> */}
+                {/* Removed the separate Resume section */}
+                {/* <section id="resume" className="relative py-16 md:py-24 bg-transparent text-white overflow-hidden font-poppins flex items-center justify-center"> ... </section> */}
                 <section id="contact" className="min-h-screen">
                   <Contact />
                 </section>
@@ -100,8 +104,8 @@ function App() {
               // The Experience component itself has padding and title, so wrapping div might be redundant unless specific layout needed
               <Experience /> // Experience component likely handles its own title and padding.
             } />
-             {/* Optional: Keep a route for the standalone Resume page if needed */}
-             {/* <Route path="/resume" element={<Resume />} /> */}
+            {/* Optional: Keep a route for the standalone Resume page if needed */}
+            {/* <Route path="/resume" element={<Resume />} /> */}
             {/* Route for the dedicated page showing all projects */}
             <Route path="/projects" element={<ProjectList />} />
             {/* Route for a specific project detail page */}

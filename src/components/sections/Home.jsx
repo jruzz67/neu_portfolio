@@ -13,7 +13,7 @@ import profile1 from '../../assets/profile-1.jpg'; // Assuming profile-1.jpg is 
 function Home({ setIsChatOpen }) {
   const [typedText, setTypedText] = useState('');
   // Using a more engaging opening phrase
-  const fullText = "Hello World! I'm Jarius Raj Singh";
+  const fullText = "Hi Everyone! I'm Jarius Raj Singh";
   const subtitle = "A passionate student exploring the fascinating realms of AI, ML, and Data Science. Welcome to my digital space!";
 
   // Effect for the typing animation
@@ -181,7 +181,7 @@ function Home({ setIsChatOpen }) {
                variants={buttonsContainerVariants} // Use same stagger for social icons
            >
                <motion.a
-                   href="https://github.com/yourusername" // Replace with your actual GitHub link
+                   href="https://github.com/jruzz67" // Replace with your actual GitHub link
                    target="_blank"
                    rel="noopener noreferrer"
                    variants={socialIconVariants}
@@ -192,7 +192,7 @@ function Home({ setIsChatOpen }) {
                    <FaGithub />
                </motion.a>
                <motion.a
-                   href="https://linkedin.com/in/yourprofile" // Replace with your actual LinkedIn link
+                   href="https://www.linkedin.com/in/jairus-raj-singh-s-36302532a" // Replace with your actual LinkedIn link
                    target="_blank"
                    rel="noopener noreferrer"
                    variants={socialIconVariants}

@@ -11,28 +11,33 @@ function Skills() {
     { name: "Python", icon: <FaPython className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
     { name: "Java", icon: <FaJava className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
     { name: "SQL", icon: <FaDatabase className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
-    { name: "Docker", icon: <FaDocker className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
-    { name: "Ollama", icon: <FaBrain className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
-    // Add more skills with icons as needed
     { name: "React", icon: <FaReact className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
-    { name: "JavaScript", icon: <FaJs className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
-    { name: "HTML5", icon: <FaHtml5 className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
-    { name: "CSS3", icon: <FaCss3Alt className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
-    { name: "Git", icon: <FaGitAlt className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
-    { name: "Linux", icon: <FaLinux className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
-  ];
-
-  const tools = [
     { name: "Scikit-learn", icon: <SiScikitlearn className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
-    // Changed Matplotlib icon to Plotly
-    { name: "Matplotlib", icon: <SiPlotly className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
     { name: "TensorFlow", icon: <SiTensorflow className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
     { name: "FastAPI", icon: <SiFastapi className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
     { name: "LangChain", icon: <SiLangchain className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
-    // Changed Power BI icon to Chart.js
-    { name: "Power BI", icon: <SiChartdotjs className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "NLP", icon: <FaBrain className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "MongoDB", icon: <FaDatabase className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "PostgreSQL", icon: <FaDatabase className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "MySQL", icon: <FaDatabase className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "Flask", icon: <FaReact className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> }, // Using FaReact as proxy
+    { name: "AWS", icon: <FaLinux className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> }, // Using FaLinux as proxy
+    { name: "VITE", icon: <FaReact className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> }, // Using FaReact as proxy
   ];
-
+  
+  const tools = [
+    { name: "Docker", icon: <FaDocker className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "Ollama", icon: <FaBrain className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "Postman", icon: <FaGitAlt className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "ngrok", icon: <FaLinux className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "ThunderClient", icon: <FaGitAlt className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "VS Code", icon: <FaGitAlt className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "Git", icon: <FaGitAlt className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "Jupyter Notebooks", icon: <FaLinux className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "Google Colab", icon: <FaLinux className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+    { name: "Hugging Face", icon: <FaBrain className="text-ai-blue group-hover:text-ai-accent transition-colors duration-300" /> },
+  ];
+  
   // Animation variants for the main section container
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },

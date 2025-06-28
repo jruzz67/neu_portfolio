@@ -43,7 +43,7 @@ function Footer() {
       <motion.div className="flex space-x-4 text-xl md:text-2xl" variants={itemVariants}> {/* Reduced icon size and spacing */}
         {/* LinkedIn Icon */}
         <motion.a
-          href="https://www.linkedin.com/in/your-profile" // Replace with your actual LinkedIn profile link
+          href="https://www.linkedin.com/in/jairus-raj-singh-s-36302532a" // Replace with your actual LinkedIn profile link
           target="_blank"
           rel="noopener noreferrer"
           className="text-ai-blue/70 hover:text-ai-accent transition-colors duration-300" // Styled link
@@ -69,7 +69,7 @@ function Footer() {
         </motion.a>
         {/* GitHub Icon (Added as it's common in portfolios) */}
          <motion.a
-           href="https://github.com/your-username" // Replace with your actual GitHub username link
+           href="https://github.com/jruzz67" // Replace with your actual GitHub username link
            target="_blank"
            rel="noopener noreferrer"
            className="text-ai-blue/70 hover:text-ai-accent transition-colors duration-300" // Styled link

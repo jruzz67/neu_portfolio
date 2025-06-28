@@ -4,45 +4,49 @@ import { FaBriefcase, FaGraduationCap, FaBuilding, FaCheckCircle, FaStar } from 
 
 function Experience() {
   const [activeView, setActiveView] = useState('Professional');
-
+  
   const experiences = [
+    {
+      title: "AI Intern",
+      company: "Malaris Software Solutions",
+      duration: "May 2025 – Jun 2025",
+      description: "Internship, Onsite",
+      icon: <FaBriefcase />,
+      details: [],
+    },
+    {
+      title: "ML Engineer Intern",
+      company: "Prodigy Infotech",
+      duration: "May 2025",
+      description: "Internship, Remote",
+      icon: <FaBriefcase />,
+      details: [],
+    },
     {
       title: "Member",
       company: "IEEE Computer Society & IEEE",
       duration: "Feb 2025 – Present",
       description: "Full-time, 3 mos",
       icon: <FaStar />,
-      details: [
-        "Engaged in community activities and knowledge sharing.",
-        "Participated in workshops and events.",
-      ],
+      details: [],
     },
     {
       title: "Data Science Intern",
       company: "CODSoft",
       duration: "Dec 2024 – Jan 2025",
-      description: "Internship, 2 mos",
+      description: "Internship, Remote",
       icon: <FaBriefcase />,
-      details: [
-        "Conducted Exploratory Data Analysis (EDA).",
-        "Utilized Python for data manipulation and analysis.",
-        "Applied skills in data visualization and reporting.",
-        "Gained experience in data cleaning and preprocessing.",
-      ],
+      details: [],
     },
-    {
-      title: "Data Science Intern",
-      company: "TEACHNOOK (TEACHSCAPE ONLINE LEARNING SERVICES PRIVATE LIMITED)",
-      duration: "Aug 2024 – Sep 2024",
-      description: "Internship, 2 mos",
-      icon: <FaBriefcase />,
-      details: [
-        "Performed EDA using various tools.",
-        "Created dashboards and reports with Microsoft Power BI.",
-        "Developed data models and applied statistical techniques.",
-        "Collaborated with team members on data projects.",
-      ],
-    },
+    // {
+    //   title: "Data Science Intern",
+    //   company: "TEACHNOOK (TEACHSCAPE ONLINE LEARNING SERVICES PRIVATE LIMITED)",
+    //   duration: "Aug 2024 – Sep 2024",
+    //   description: "Internship, 2 mos, Remote",
+    //   icon: <FaBriefcase />,
+    //   details: [],
+    // },
+    ,
   ];
 
   const education = [
@@ -52,34 +56,21 @@ function Experience() {
       duration: "2023 – 2027",
       description: "Grade: 7.91 CGPA (Upto 3rd Semester)",
       icon: <FaGraduationCap />,
-      details: [
-        "Relevant coursework in Data Structures, Algorithms, Database Management.",
-        "Involved in projects related to Project Management and Docker.",
-        "Actively participated in technical clubs and events.",
-      ],
+      details: [],
     },
     {
       institution: "Rose Mary Matriculation Higher Secondary School",
       duration: "Jun 2008 – Apr 2023",
       description: "Grade: 93.33%",
       icon: <FaGraduationCap />,
-      details: [
-        "Completed Higher Secondary Education.",
-        "Focused on Science stream.",
-        "Participated in extracurricular activities.",
-      ],
+      details: [],
     },
     {
-      institution: "Institution’s Innovation Council, Sri Krishna College of Technology",
-      degree: "Student Coordinator",
-      duration: "Dec 2024 – Present",
-      description: "Full-time, 5 mos, Coimbatore, Tamil Nadu, India",
+      institution: "District Priority Project as Director in Rotaract Club of SKCT",
+      duration: "",
+      description: "",
       icon: <FaBuilding />,
-      details: [
-        "Coordinated innovation-related activities and events.",
-        "Supported student projects and initiatives.",
-        "Liaised between students and faculty mentors.",
-      ],
+      details: [],
     },
   ];
 
@@ -183,17 +174,6 @@ function Experience() {
                       <p className="text-gray-400 text-sm mb-1">{item.company}</p>
                       <p className="text-ai-blue text-sm mb-3">{item.duration}</p>
                       <p className="text-ai-blue/70 text-sm mb-3">{item.description}</p>
-
-                      {item.details && item.details.length > 0 && (
-                        <ul className="list-none space-y-1 text-sm text-ai-blue/60">
-                          {item.details.map((detail, i) => (
-                            <li key={i} className={`flex items-start ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
-                              <FaCheckCircle className={`mt-1 text-xs text-ai-accent flex-shrink-0 ${index % 2 === 0 ? 'md:ml-2' : 'md:mr-2'}`}/>
-                              <span>{detail}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
                     </div>
                   </motion.div>
                 ))
@@ -217,17 +197,6 @@ function Experience() {
                       {item.degree && <p className="text-gray-400 text-sm mb-1">{item.degree}</p>}
                       <p className="text-ai-blue text-sm mb-3">{item.duration}</p>
                       <p className="text-ai-blue/70 text-sm mb-3">{item.description}</p>
-
-                      {item.details && item.details.length > 0 && (
-                        <ul className="list-none space-y-1 text-sm text-ai-blue/60">
-                          {item.details.map((detail, i) => (
-                            <li key={i} className={`flex items-start ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
-                              <FaCheckCircle className={`mt-1 text-xs text-ai-accent flex-shrink-0 ${index % 2 === 0 ? 'md:ml-2' : 'md:mr-2'}`}/>
-                              <span>{detail}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
                     </div>
                   </motion.div>
                 ))
